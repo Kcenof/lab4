@@ -18,11 +18,12 @@ pipeline {
                 sh 'pip install Flask xmlrunner'
                 sh 'python3 test_app.py'
             }
-        }
-    }
-    post {
-        always {
-            junit 'test-reports/*.xml'
+            // МИ ПЕРЕНЕСЛИ POST СЮДИ (всередину стадії Test)
+            post {
+                always {
+                    junit 'test-reports/*.xml'
+                }
+            }
         }
     }
 }
